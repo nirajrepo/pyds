@@ -55,28 +55,36 @@ def main():
 '''
 
 # Node of a Singly Linked List
+from tkinter.messagebox import NO
+
+
 class Node:
     # constructor
     def __init__(self, data):
         self.data = data
         self.next = None
-         # method for setting the data field of the node    
+    
+    # method for setting the data   
     def set_data(self, data):
         self.data = data
-    # method for getting the data field of the node   
+    
+    # method for retrieving data field   
     def get_data(self):
         return self.data
-      # method for setting the next field of the node
+    
+    # method for setting the next field
     def set_next(self, next):
         self.next = next
-       # method for getting the next field of the node    
+    
+    # method for getting the next field    
     def get_next(self):
         return self.next
-    # returns true if the node points to another node
+    
+    # method for checking next node
     def has_next(self):
             return self.next != None
 
-# class for defining a linked list   
+# class for defining a linked list
 class LinkedList(object):
      
     # initializing a list
@@ -92,7 +100,7 @@ class LinkedList(object):
             self.addLast(node)
              
          
-    # method to add a node at the beginning of the list with a data   
+    # method to add a node at the beginning of the list 
     def addBeg(self, node):
         newNode = node
         newNode.next = self.head
@@ -108,12 +116,13 @@ class LinkedList(object):
             if currentnode.data == data:
                 newNode.next = currentnode.next
                 currentnode.next = newNode
-                self.length = self.length + 1
-                return
+                self.length += 1
+                return True
             else:
                 currentnode = currentnode.next
                  
-        print("The data provided is not present")
+        return False
+        # print("The data provided is not present")
                  
     # method to add a node at a particular position
     def addAtPos(self, pos, node):
@@ -234,48 +243,39 @@ class LinkedList(object):
             return self.head.data
      
     # returns the last element of the list
-    def getLast(self):
-         
-        if self.length == 0:
-            print ("The list is empty")
+    def get_last(self):
+        current_node = self.head
+            
+        while current_node.next != None:
+            current_node = current_node.next
+                
+        if current_node:
+            return current_node.data
         else:
-            currentnode = self.head
-             
-            while currentnode.next != None:
-                currentnode = currentnode.next
-                 
-            return currentnode.data
+            return None
      
     # returns node at any position
-    def getAtPos(self, pos):
+    def get_at_pos(self, pos):
         count = 0
-        currentnode = self.head
+        current_node = self.head
          
         if pos > self.length or pos < 0:
             print("The position does not exist. Please enter a valid position")
         else:
-            while currentnode.next != None or count < pos:
-                count = count + 1
+            while current_node.next != None or count < pos:
+                count += 1
                 if count == pos:
-                    return currentnode.data
+                    return current_node.data
                 else:
-                    currentnode = currentnode.next
+                    current_node = current_node.next
  
                      
     # method to print the whole list
-    '''def print_list(self):
-        nodeList = []
-        currentnode = self.head
-        while currentnode != None:
-            nodeList.append(currentnode.data)
-            currentnode = currentnode.next 
-        print(nodeList)'''  
-
     def print_list(self):
-        currentnode = self.head
-        while currentnode != None:
-            print(f"{currentnode.data}",end=" -> ")
-            currentnode = currentnode.next
+        current_node = self.head
+        while current_node != None:
+            print(f"{current_node.data}",end=" -> ")
+            current_node = current_node.next
         print(None)
 
 def main():
