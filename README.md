@@ -1,5 +1,9 @@
 # Data Structure with Python!
-A repository to host all data structure (Linked List, Tree, Stack, Queue, Graph, Sort) programs written in Python...
-- Linked list
+A repository to host all data structure programs writtend in python including...
+
 - Tree
 - Binary Tree
+- Graph
+- Queue
+- Stack
+- Sorting
