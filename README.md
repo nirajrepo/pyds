@@ -1,5 +1,5 @@
 # Data Structure with Python!
-A repository to host all data structure programs writtend in python including...
+A repository to host all data structure programs written in python including...
 
 - Tree
 - Binary Tree
